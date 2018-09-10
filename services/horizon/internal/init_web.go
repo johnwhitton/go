@@ -145,6 +145,10 @@ func initWebActions(app *App) {
 
 	// Asset related endpoints
 	r.Get("/assets", AssetsAction{}.Handle)
+
+	// Network state related endpoints
+	r.Get("/operation_fee_stats", OperationFeeStatsAction{}.Handle)
+
 	// friendbot
 	redirectFriendbot := func(w http.ResponseWriter, r *http.Request) {
 		redirectURL := app.config.FriendbotURL.String() + "?" + r.URL.RawQuery
